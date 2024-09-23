@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result History</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+    #result {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 30%;
+    }
+    .card{
+        width: 40%;
+        margin-left: 30%;
+        border-radius: 20px;
+        background-color: #00a5bb;
+    }
+    body{
+        background-color: #acecf5;
+        font-weight: bold;
+        font-family: "Quicksand", sans-serif;
+    }
+    .btn{
+        background-color: #04505a;
+        color: white;
+    }
+    @media only screen and (max-width: 767px) {
+        .card {
+            width: 90%;
+            margin-left: 5%;
+        }
+        #result {
+            margin-left: 0;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        h5 {
+            font-size: 16px;
+        }
+        .btn {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .card {
+            width: 60%;
+            margin-left: 20%;
+        }
+        #result {
+            margin-left: 0;
+            text-align: center;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        h5 {
+            font-size: 18px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="card">
+      <div class="text-center">
+        <h2>Result</h2>
+      </div>
+      <div class="card-body">
+        <form id="searchForm">
+          <div class="form-group">
+            <label for="enroll"><h5>Enrollment No.</h5></label>
+            <input type="text" class="form-control" id="enroll" placeholder="Enter Enrollment No." required>
+          </div>
+          <div class="form-group">
+            <label for="grno"><h5>Gr. No.</h5></label>
+            <input type="text" class="form-control" id="grno" placeholder="Enter Gr. No." required>
+          </div>
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+    </div>
+    <div id="result" class="mt-4"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
