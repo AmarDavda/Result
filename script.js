@@ -1,18 +1,15 @@
 document.getElementById('searchForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Get user input
   const enroll = document.getElementById('enroll').value.trim();
   const grno = document.getElementById('grno').value.trim();
 
   // Assume we have the Excel file uploaded or read
-  // For simplicity, this example uses a pre-loaded file path
-  const fileInput = 'data.xlsx'; // You can change this to actual file input logic if required
+  const fileInput = 'data.xlsx';
 
   fetchExcelData(fileInput, enroll, grno);
 });
 
-// Function to fetch data from the Excel sheet and match
 function fetchExcelData(filePath, enroll, grno) {
   const reader = new XMLHttpRequest();
   reader.open("GET", filePath, true);
@@ -24,22 +21,18 @@ function fetchExcelData(filePath, enroll, grno) {
     const firstSheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[firstSheetName];
 
-    // Convert worksheet data to JSON
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-    // Search for the record
     const matchedRecord = searchForRecord(jsonData, enroll, grno);
 
-    // Display the result
     displayResult(matchedRecord);
   };
 
   reader.send();
 }
 
-// Function to search for a match in the Excel data
 function searchForRecord(data, enroll, grno) {
-  for (let i = 1; i < data.length; i++) { // Skip header row
+  for (let i = 1; i < data.length; i++) { //skips header line
     const row = data[i];
     if (row[0] == enroll && row[1] == grno) {
       return { name: row[2], marks: row[3] };
@@ -48,10 +41,9 @@ function searchForRecord(data, enroll, grno) {
   return null;
 }
 
-// Function to display the result on the webpage
 function displayResult(record) {
   const resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = ''; // Clear previous result
+  resultDiv.innerHTML = '';
 
   if (record) {
     resultDiv.innerHTML = `<h5>Result Found</h5><br>
@@ -61,4 +53,3 @@ function displayResult(record) {
     resultDiv.innerHTML = `<p class="text-danger">No matching record found!!</p>`;
   }
 }
-
