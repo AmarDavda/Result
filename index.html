@@ -101,21 +101,21 @@
 
 </body>
 </html>
- -->
+  -->
 
 
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Result History</title>
-  
+
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
 
   <style>
     body {
@@ -124,10 +124,17 @@
       font-weight: bold;
     }
 
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
     .card {
-      width: 100%;
-      max-width: 500px;
-      margin: auto;
+      width: 40%;
+      min-width: 300px;
       border-radius: 20px;
       background-color: #00a5bb;
       padding: 20px;
@@ -136,14 +143,16 @@
     .btn {
       background-color: #04505a;
       color: white;
-      width: 100%;
     }
 
     #result {
+      width: 40%;
+      min-width: 300px;
       font-size: 18px;
       font-weight: bold;
-      text-align: center;
-      margin-top: 20px;
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
     }
 
     h2 {
@@ -152,18 +161,41 @@
     }
 
     @media only screen and (max-width: 767px) {
+      .card, #result {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      #result {
+        text-align: center;
+      }
+
       h2 {
         font-size: 24px;
       }
+
       h5 {
         font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
       }
     }
 
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .card, #result {
+        width: 60%;
+      }
+
+      #result {
+        text-align: center;
+      }
+
       h2 {
         font-size: 28px;
       }
+
       h5 {
         font-size: 18px;
       }
@@ -173,6 +205,7 @@
 
 <body>
   <div class="container mt-5">
+    <!-- Left: Input Form Card -->
     <div class="card shadow">
       <div class="text-center mb-3">
         <h2>Result</h2>
@@ -192,12 +225,12 @@
       </div>
     </div>
 
-    <div id="result" class="mt-4"></div>
+    <!-- Right: Result Display -->
+    <div id="result" class="shadow"></div>
   </div>
 
   <!-- SheetJS for Excel reading -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <!-- Your custom script -->
   <script src="script.js"></script>
 </body>
 </html>
