@@ -115,8 +115,9 @@ function displayResult(record) {
   if (record) {
     resultDiv.innerHTML = `<h4>Result Found!</h4><br>
                            <h5>Name: ${record.name}</h5>
-                           <h6>Sem: ${record.sem}</h6> <h6>Class: ${record.class}</h6>
-                           <h5>Subject: ${record.subject}</h5> <h5>Marks: ${record.marks}</h5>`;
+                           <h6>Sem: ${record.sem} | Class: ${record.class}</h6>
+                           <h5>Subject: ${record.subject}</h5>
+                           <h5>Marks: ${record.marks}</h5>`;
   } else {
     resultDiv.innerHTML = `<p class="text-danger">No matching record found!!</p>`;
   }
